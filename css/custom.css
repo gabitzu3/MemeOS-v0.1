@@ -1,0 +1,84 @@
+/* MemeOS custom tweaks */
+body {
+    user-select: none; /* Prevent selecting desktop icons by dragging */
+}
+
+.window {
+    /* Allow children to have text selection by default */
+    user-select: text;
+}
+
+.window .content {
+  user-select: text;
+  height: 100%; /* Ensure content area fills the window */
+  overflow-y: auto; /* Add scroll for content that overflows */
+}
+
+.file-icon {
+    user-select: none;
+}
+
+.titlebar {
+    /* Explicitly disable selection on titlebar to not interfere with dragging */
+    user-select: none;
+}
+
+.window::-webkit-scrollbar { width: 6px; }
+.window::-webkit-scrollbar-thumb { background: #4b5563}
+
+/* Desktop Icon Grid */
+#desktop-icons {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-flow: row wrap; /* Arrange icons in rows, wrapping as needed */
+    align-content: flex-start; /* Align columns to the start */
+    gap: 20px; /* Space between icons */
+    height: calc(100% - 40px); /* Use most of the screen height */
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the top */
+  width: 75px;
+  height: 75px;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s;
+  margin-bottom: 5px;
+}
+
+.desktop-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon img {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 5px;
+}
+
+.desktop-icon span {
+  color: white;
+  font-size: 11px;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px black;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show max 2 lines */
+  line-clamp: 2; /* Standard property */
+  -webkit-box-orient: vertical;
+  word-break: break-word; /* Break long words */
+}
+
+.file-explorer-item-name {
+  word-wrap: break-word;
+  white-space: normal;
+}

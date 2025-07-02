@@ -1,0 +1,43 @@
+#bsod {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0078d7;
+    color: white;
+    font-family: 'Lucida Console', 'Consolas', monospace;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    z-index: 99999;
+    cursor: none;
+}
+
+#bsod-content {
+    width: 80%;
+}
+
+#bsod-content h1 {
+    font-size: 10em;
+    font-weight: lighter;
+    margin: 0;
+}
+
+#bsod-content p {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.qr-code {
+    float: left;
+    margin-right: 30px;
+}
+
+.qr-code img {
+    width: 150px;
+    height: 150px;
+    background: white;
+    padding: 5px;
+}

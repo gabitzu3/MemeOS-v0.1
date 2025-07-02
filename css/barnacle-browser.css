@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'spongebob-font-family';
+    src: url('../fonts/SpongeBob.ttf') format('truetype');
+}
+
+.spongebob-font {
+    font-family: 'spongebob-font-family', sans-serif !important;
+}
