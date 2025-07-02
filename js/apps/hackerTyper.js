@@ -3,7 +3,7 @@ function createHackerTyperWindow() {
   win.dataset.app = 'hackerTyper';
   win.style.width = '700px';
   win.style.height = '500px';
-  win.tabIndex = 0; // Make focusable
+  win.tabIndex = 0; 
   win.focus();
 
   const pre = document.createElement('pre');
@@ -11,7 +11,6 @@ function createHackerTyperWindow() {
   pre.style.flex = '1';
   win.appendChild(pre);
 
-  // Very long simulated "hacker" script
   const codeLines = [
     '#include <stdio.h>',
     '#include <stdlib.h>',
@@ -44,15 +43,14 @@ function createHackerTyperWindow() {
     'user@root:~#'
   ];
 
-  // Duplicate to make it LONG
   const code = codeLines.join('\n') + '\n';
-  const fullCode = code.repeat(30); // Make it LONG
+  const fullCode = code.repeat(30); 
 
   let idx = 0;
 
   const typeListener = (e) => {
-    if (!document.body.contains(win)) return; // Stop if window was closed
-    if (idx >= fullCode.length) return;       // Stop typing when done
+    if (!document.body.contains(win)) return; 
+    if (idx >= fullCode.length) return;       
 
     pre.textContent += fullCode[idx++];
     pre.scrollTop = pre.scrollHeight;

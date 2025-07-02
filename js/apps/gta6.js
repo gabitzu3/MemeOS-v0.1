@@ -65,7 +65,7 @@ const GTA6_POPUPS = [
 function createGTA6Window() {
     const win = makeWindow('GTA VI');
     win.classList.remove('w-96', 'h-64');
-    win.classList.add('w-[1024px]', 'h-[576px]'); // 16:9 aspect ratio
+    win.classList.add('w-[1024px]', 'h-[576px]');
     win.dataset.app = 'gta6';
 
     const content = document.createElement('div');
@@ -80,14 +80,12 @@ function createGTA6Window() {
     let popupTimeout;
     let lastPopupTime = 0;
 
-    // State for pop-up sequence
     let unseenPopups = [];
     let popupsInitialized = false;
     const ramPopupIndex = GTA6_POPUPS.findIndex(p => p.message.includes("RAM"));
     const ramPopup = GTA6_POPUPS[ramPopupIndex];
 
     function initializePopups() {
-        // Create a shuffled list of all popups except the RAM one
         unseenPopups = GTA6_POPUPS
             .filter((_, index) => index !== ramPopupIndex)
             .map(value => ({ value, sort: Math.random() }))
@@ -97,18 +95,15 @@ function createGTA6Window() {
     }
 
     function getNextPopup() {
-        // First time, always show the RAM popup
         if (!popupsInitialized) {
             initializePopups();
             return ramPopup;
         }
 
-        // If there are unseen popups, show the next one from the shuffled list
         if (unseenPopups.length > 0) {
-            return unseenPopups.shift(); // Get and remove the next popup
+            return unseenPopups.shift(); 
         }
 
-        // Once all have been seen, pick a random one
         const otherPopups = GTA6_POPUPS.filter((_, index) => index !== ramPopupIndex);
         return otherPopups[Math.floor(Math.random() * otherPopups.length)];
     }
@@ -198,7 +193,6 @@ function createGTA6Window() {
     return win;
 }
 
-// Register the app
 window.apps = window.apps || {};
 window.apps.gta6 = {
     createWindow: createGTA6Window,

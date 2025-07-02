@@ -25,11 +25,10 @@ function createTerminalWindow() {
   win.appendChild(content);
 
   const write = (text) => {
-    // For multi-line text, wrap in <pre> to preserve whitespace and formatting
     if (text.includes('\n')) {
         const pre = document.createElement('pre');
         pre.textContent = text;
-        pre.className = 'font-mono'; // Ensure consistent font
+        pre.className = 'font-mono';
         output.appendChild(pre);
     } else {
         output.innerHTML += text.replace(/ /g, '&nbsp;') + '<br/>';
@@ -49,7 +48,6 @@ function createTerminalWindow() {
     }
   });
 
-  // Focus input when window is focused
   win.addEventListener('focus', () => input.focus(), true);
   setTimeout(() => input.focus(), 0);
 

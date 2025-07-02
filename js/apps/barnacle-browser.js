@@ -104,10 +104,8 @@ function createBarnacleBrowserWindow(params = {}) {
     win.classList.remove('w-96', 'h-64');
     win.classList.add('w-[960px]', 'h-[720px]', 'flex', 'flex-col');
 
-    // For incognito, create a simple content pane and return.
     if (isIncognito) {
         const incognitoContent = document.createElement('div');
-        // Use flex-grow to fill the space correctly under the title bar.
         incognitoContent.className = 'flex-grow flex flex-col items-center justify-center bg-gray-700 p-8 text-white';
         incognitoContent.innerHTML = `
             <img src="js/apps/barnacle_browser_assets/patrick_incognito.png" alt="Incognito Patrick" class="w-48 h-48 mb-4">
@@ -118,7 +116,6 @@ function createBarnacleBrowserWindow(params = {}) {
         return win;
     }
 
-    // For normal mode, build the full browser UI.
     let secretClickCount = 0;
     let isSpongeMode = false;
     let tabs = {};
@@ -127,7 +124,6 @@ function createBarnacleBrowserWindow(params = {}) {
     let tabCount = 0;
 
     const browserContainer = document.createElement('div');
-    // Use flex-grow to fill space correctly, and relative for positioning children.
     browserContainer.className = 'flex-grow flex flex-col bg-[#006994] text-white relative min-h-0';
     win.appendChild(browserContainer);
 
@@ -310,7 +306,6 @@ function createBarnacleBrowserWindow(params = {}) {
         try {
             const tabId = `tab-${Date.now()}-${Math.random()}`;
             
-            // Create tab element
             const tabEl = document.createElement('div');
             tabEl.className = 'tab-item flex items-center p-2 border-r border-gray-700 cursor-pointer bg-[#005a8a]';
             tabEl.dataset.tabId = tabId;
@@ -319,13 +314,11 @@ function createBarnacleBrowserWindow(params = {}) {
                 <button class="close-tab-button ml-2 w-4 h-4 flex items-center justify-center rounded-full hover:bg-gray-600">×</button>
             `;
             
-            // Add tab to the tab list
             if (tabList) {
                 tabList.appendChild(tabEl);
             }
 
 
-            // Create tab content
             const contentEl = document.createElement('div');
             contentEl.id = tabId;
             contentEl.className = 'absolute inset-0 hidden flex flex-col';
@@ -340,7 +333,6 @@ function createBarnacleBrowserWindow(params = {}) {
                 contentArea.appendChild(contentEl);
             }
 
-            // Store tab data
             tabs[tabId] = { 
                 url, 
                 history: [url], 
@@ -348,7 +340,6 @@ function createBarnacleBrowserWindow(params = {}) {
                 title: 'New Tab'
             };
 
-            // If this is the first tab, make it active
             switchToTab(tabId);
             if (instant) {
                 setTimeout(() => navigateTo(url, tabId, true), 10);
@@ -551,25 +542,21 @@ function renderVideoPlayerPage(params) {
         });
     }
 
-    // Event Listeners
     browserContainer.addEventListener('click', (e) => {
         const activeContent = document.getElementById(activeTabId);
         if (!activeContent) return;
 
-        // Video card click
         const videoCard = e.target.closest('.youtoob-video-card');
         if (videoCard && videoCard.dataset.videoId) {
             navigateTo(`barnacle://youtoob/watch?v=${videoCard.dataset.videoId}`, activeTabId);
             return;
         }
 
-        // Back to YouToob button
         if (e.target.classList.contains('back-to-youtoob')) {
             navigateTo('barnacle://youtoob', activeTabId);
             return;
         }
 
-        // Secret icon click
         if (e.target.id === 'secret-icon') {
             secretClickCount++;
             if (secretClickCount >= 5 && !isSpongeMode) {
@@ -577,7 +564,6 @@ function renderVideoPlayerPage(params) {
                 const audio = new Audio('sounds/bubble.mp3');
                 audio.play().catch(err => console.error("Sound error:", err));
                 
-                // Add secret bookmark if it doesn't exist
                 if (!document.getElementById('secret-bookmark')) {
                     const secretBookmark = document.createElement('button');
                     secretBookmark.id = 'secret-bookmark';
@@ -592,13 +578,11 @@ function renderVideoPlayerPage(params) {
             return;
         }
 
-        // Menu button
         if (e.target.id === 'menu-button') {
             menuDropdown.classList.toggle('hidden');
             return;
         }
 
-        // Search from homepage
         if (e.target.closest('#search-button')) {
             const searchInput = browserContainer.querySelector('#search-bar');
             if (searchInput && searchInput.value.trim()) {
@@ -608,7 +592,6 @@ function renderVideoPlayerPage(params) {
             return;
         }
 
-        // Search from results page
         if (e.target.closest('#search-results-button')) {
             const searchInput = activeContent.querySelector('#search-results-input');
             if (searchInput && searchInput.value.trim()) {
@@ -618,20 +601,17 @@ function renderVideoPlayerPage(params) {
             return;
         }
 
-        // Search suggestion click
         if (e.target.classList.contains('suggestion-item')) {
             const query = e.target.textContent;
             navigateTo(`barnacle://search?q=${encodeURIComponent(query)}`, activeTabId);
             return;
         }
 
-        // YouToob ad click
         if (e.target.closest('#youtoob-ad')) {
             showSpongeBobBSOD();
             return;
         }
 
-        // Incognito menu item
         if (e.target.id === 'incognito-menu-item') {
             e.preventDefault();
             window.openApp('barnacle-browser', { incognito: true });
@@ -639,7 +619,6 @@ function renderVideoPlayerPage(params) {
             return;
         }
 
-        // ChumNet ad click
         const chumAd = e.target.closest('.chum-ad');
         if (chumAd) {
             const adId = parseInt(chumAd.dataset.adId, 10);
@@ -674,7 +653,6 @@ function renderVideoPlayerPage(params) {
         if (!activeContent) return;
         const searchBar = activeContent.querySelector('#search-bar');
         if (e.target === searchBar) {
-            // Use a small delay to allow click events on suggestions to fire
             setTimeout(() => {
                 const suggestions = activeContent.querySelector('#search-suggestions');
                 if (suggestions) suggestions.classList.add('hidden');
@@ -708,7 +686,6 @@ function renderVideoPlayerPage(params) {
         }
     });
 
-    // Create initial tab
     setTimeout(() => {
         activeTabId = createNewTab('barnacle://home', true);
         if (activeTabId) {
@@ -722,21 +699,17 @@ function renderVideoPlayerPage(params) {
     return win;
 }
 
-// Ensure window.apps exists
 if (typeof window.apps === 'undefined') {
     window.apps = {};
 }
 
-// Register the app with both hyphenated and camelCase keys for maximum compatibility
 const barnacleBrowserApp = {
     createWindow: createBarnacleBrowserWindow,
     name: 'Barnacle Browser',
     icon: 'js/apps/barnacle_browser_assets/icon.png'
 };
 
-// Register with both formats to ensure compatibility
 window.apps['barnacle-browser'] = barnacleBrowserApp;
 window.apps.barnacleBrowser = barnacleBrowserApp;
 
-// Log registration for debugging
 console.log('Barnacle Browser app registered:', Object.keys(window.apps));

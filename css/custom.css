@@ -1,17 +1,16 @@
 /* MemeOS custom tweaks */
 body {
-    user-select: none; /* Prevent selecting desktop icons by dragging */
+    user-select: none; 
 }
 
 .window {
-    /* Allow children to have text selection by default */
     user-select: text;
 }
 
 .window .content {
   user-select: text;
-  height: 100%; /* Ensure content area fills the window */
-  overflow-y: auto; /* Add scroll for content that overflows */
+  height: 100%;
+  overflow-y: auto; 
 }
 
 .file-icon {
@@ -19,30 +18,28 @@ body {
 }
 
 .titlebar {
-    /* Explicitly disable selection on titlebar to not interfere with dragging */
     user-select: none;
 }
 
 .window::-webkit-scrollbar { width: 6px; }
 .window::-webkit-scrollbar-thumb { background: #4b5563}
 
-/* Desktop Icon Grid */
 #desktop-icons {
     position: absolute;
     top: 20px;
     left: 20px;
     display: flex;
-    flex-flow: row wrap; /* Arrange icons in rows, wrapping as needed */
-    align-content: flex-start; /* Align columns to the start */
-    gap: 20px; /* Space between icons */
-    height: calc(100% - 40px); /* Use most of the screen height */
+    flex-flow: row wrap; 
+    align-content: flex-start; 
+    gap: 20px; 
+    height: calc(100% - 40px); 
 }
 
 .desktop-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align items to the top */
+  justify-content: flex-start; 
   width: 75px;
   height: 75px;
   padding: 4px;
@@ -72,10 +69,10 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Show max 2 lines */
-  line-clamp: 2; /* Standard property */
+  -webkit-line-clamp: 2; 
+  line-clamp: 2; 
   -webkit-box-orient: vertical;
-  word-break: break-word; /* Break long words */
+  word-break: break-word; 
 }
 
 .file-explorer-item-name {

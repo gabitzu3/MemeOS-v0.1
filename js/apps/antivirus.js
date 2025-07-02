@@ -90,7 +90,7 @@ function createAntivirusWindow() {
         noThreatsView.classList.add('hidden');
 
         let progress = 0;
-        const scanDuration = Math.random() * 5000 + 2000; // Faster scan
+        const scanDuration = Math.random() * 5000 + 2000; 
         const interval = setInterval(() => {
             progress += 50;
             const percent = Math.min(Math.floor((progress / scanDuration) * 100), 100);
@@ -127,7 +127,6 @@ function createAntivirusWindow() {
         quarantineBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
         quarantineBtn.classList.add('bg-gray-500');
 
-        // After quarantining, show the success screen
         setTimeout(() => {
             resultsView.classList.add('hidden');
             noThreatsView.classList.remove('hidden');
