@@ -103,18 +103,18 @@ function createBasedMeterWindow() {
 
     let currentQuestionIndex = 0;
     let score = 0;
-    let answerHistory = []; // For the back button
+    let answerHistory = []; 
 
     function showResults() {
-        // Find the closest result based on score by checking thresholds
+       
         let result;
         if (score >= 15) result = BASED_METER_RESULTS[0]; // ULTRA BASED
         else if (score >= 5) result = BASED_METER_RESULTS[1];  // BASED
         else if (score > -10) result = BASED_METER_RESULTS[2]; // CRINGE
         else result = BASED_METER_RESULTS[3]; // NPC
 
-        const maxScore = 23; // Sum of max positive values
-        const minScore = -18; // Sum of min negative values
+        const maxScore = 23; 
+        const minScore = -18; 
         const scorePercentage = Math.max(0, Math.min(100, ((score - minScore) / (maxScore - minScore)) * 100));
 
         let achievementsHTML = '';
@@ -159,7 +159,7 @@ function createBasedMeterWindow() {
         
         if (result.title === 'NPC' || result.title === 'CRINGE') {
             container.querySelector('#embraceBtn').onclick = () => {
-                win.remove(); // Close the window
+                win.remove(); 
             };
         }
     }
@@ -231,7 +231,6 @@ function createBasedMeterWindow() {
     return win;
 }
 
-// Register the app
 window.apps = window.apps || {};
 window.apps.basedMeter = { 
     createWindow: createBasedMeterWindow, 

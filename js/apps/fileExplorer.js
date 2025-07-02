@@ -1,5 +1,4 @@
 function createOhioFileExplorerWindow() {
-    // --- All constants and helpers are now inside the function scope ---
     const TOOLTIPS = {
         'TOP_SECRET_DO_NOT_OPEN': 'Don’t open this.',
         'portal.gif': 'Probably not a virus.',
@@ -250,7 +249,7 @@ function createOhioFileExplorerWindow() {
         const parts = path.split('\\');
         let current = VFS[parts[0]];
         for (let i = 1; i < parts.length; i++) {
-            if (!current || !current.children) return null; // Path is invalid
+            if (!current || !current.children) return null; 
             current = current.children[parts[i]];
         }
         return current;
@@ -287,7 +286,6 @@ function createOhioFileExplorerWindow() {
         }
     });
 
-    // Initial Render
     renderNavPane(VFS, navPane);
     renderMainPane(VFS['C:'], 'C:');
 

@@ -27,13 +27,11 @@ function openApp(app, params = {}) {
         const win = window.apps[app].createWindow(params);
         console.log(`[Desktop] Window for "${app}" created successfully.`);
 
-        // Add to DOM to measure dimensions, but keep it hidden while we position it
         win.style.visibility = 'hidden';
         desktop.appendChild(win);
         const winWidth = win.offsetWidth;
         const winHeight = win.offsetHeight;
 
-        // Add cascading position logic
         const { top, left } = window.memeOS.state.lastWindowPosition;
         const offset = window.memeOS.state.windowOffset;
         const desktopHeight = desktop.clientHeight;
@@ -42,7 +40,6 @@ function openApp(app, params = {}) {
         let newTop = top + offset;
         let newLeft = left + offset;
 
-        // Reset cascade if the new window would go off-screen
         if (newLeft + winWidth > desktopWidth || newTop + winHeight > desktopHeight) {
             newTop = 5;
             newLeft = 20;
@@ -50,7 +47,7 @@ function openApp(app, params = {}) {
 
         win.style.top = `${newTop}px`;
         win.style.left = `${newLeft}px`;
-        win.style.visibility = 'visible'; // Make it visible now that it's positioned
+        win.style.visibility = 'visible'; 
 
         window.memeOS.state.lastWindowPosition = { top: newTop, left: newLeft };
 
@@ -86,17 +83,14 @@ function focusWindow(win) {
   });
 }
 
-// Basic drag implementation
 let dragData = null;
 
 desktop.addEventListener('mousedown', e => {
   const win = e.target.closest('.window');
-  if (!win) return; // Exit if not clicking on a window
+  if (!win) return; 
 
-  // Always bring window to front on any click
   focusWindow(win);
 
-  // Only initiate drag if the titlebar was clicked
   if (e.target.classList.contains('titlebar')) {
     dragData = {
       win,
@@ -114,11 +108,9 @@ desktop.addEventListener('mousemove', e => {
 
 desktop.addEventListener('mouseup', () => dragData = null);
 
-// Expose globally for other modules and add listeners for desktop icons
 window.openApp = openApp;
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Desktop Icon Listeners
     document.querySelectorAll('.desktop-icon[data-app]').forEach(icon => {
         icon.onclick = () => openApp(icon.dataset.app);
     });

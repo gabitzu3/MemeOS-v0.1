@@ -135,7 +135,6 @@ function createRizzAIWindow() {
         const randomRizz = rizzList[Math.floor(Math.random() * rizzList.length)];
         resultText.textContent = randomRizz;
 
-        // Play sound if not 'Normal Rizz'
         if (selectedStyle !== 'Normal Rizz') {
             vineBoom.currentTime = 0;
             vineBoom.play().catch(e => console.error("Error playing sound:", e));

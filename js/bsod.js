@@ -20,7 +20,7 @@ function triggerBSOD() {
         </div>
     `;
     document.body.appendChild(bsod);
-    bsod.style.display = 'flex'; // Show the BSOD
+    bsod.style.display = 'flex'; 
 
     let progress = 0;
     const progressEl = document.getElementById('bsod-progress');
@@ -29,8 +29,7 @@ function triggerBSOD() {
         if (progress > 100) {
             progress = 100;
             clearInterval(interval);
-            // Optional: could actually reload the page here after a delay
-            // setTimeout(() => location.reload(), 2000);
+            setTimeout(() => location.reload(), 2000);
         }
         if (progressEl) {
             progressEl.textContent = `${progress}% complete`;

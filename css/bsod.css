@@ -7,7 +7,7 @@
     background-color: #0078d7;
     color: white;
     font-family: 'Lucida Console', 'Consolas', monospace;
-    display: none; /* Hidden by default */
+    display: none; 
     justify-content: center;
     align-items: center;
     text-align: left;

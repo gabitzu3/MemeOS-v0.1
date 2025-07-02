@@ -1,7 +1,6 @@
 function showContextMenu(event, targetElement) {
     event.preventDefault();
 
-    // Hide any existing context menu
     hideContextMenu();
 
     const menu = document.createElement('div');
@@ -30,7 +29,6 @@ function showContextMenu(event, targetElement) {
 
     
     document.getElementById('ctx-delete').addEventListener('click', () => {
-        // Placeholder for vine boom sound
         targetElement.remove();
         hideContextMenu();
     });
