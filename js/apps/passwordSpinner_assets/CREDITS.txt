@@ -1,0 +1,4 @@
+!ORIGINAL IDEA AND SOURCE FROM:
+https://github.com/clawdius/clawdius.github.io/tree/master/password-generator
+
+MANY THANKS FOR THE ORIGINAL IDEA!<3

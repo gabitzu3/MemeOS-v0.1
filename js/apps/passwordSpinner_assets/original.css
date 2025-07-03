@@ -1,0 +1,116 @@
+body {
+    background-color: rgb(16, 16, 16);
+}
+
+#gambleButton {
+    background-color: rgb(30, 122, 30);
+    cursor: pointer;
+    border-radius: 2px;
+    user-select: none;
+}
+
+#info {
+    color: rgba(191, 191, 191, 0.447);
+    bottom: 48px;
+    font-size: 8pt;
+}
+
+#resetButton {
+    background-color: rgba(87, 87, 87, 0.24);
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+#copyToClipboard {
+    background-color: rgb(69, 69, 181);
+    cursor: pointer;
+    border: 1px rgb(69, 69, 181) solid;
+    border-radius: 0 2px 2px 0;
+}
+
+#gamble-overlay {
+    background-color: rgba(0, 0, 0, 0.668);
+}
+
+#cursor {
+    width: 2px;
+    height: 90px;
+    background-color: rgb(255, 255, 51);
+    z-index: 10;
+    transform: translateX(50vw);
+}
+
+.inner {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24pt;
+    background-color: rgb(35, 35, 35);
+    color: white;
+    user-select: none;
+    position: relative;
+    z-index: 15;
+}
+
+.blue {
+    box-shadow: 0 4px rgb(57, 57, 209);
+    filter: drop-shadow(0 0 0.5em rgba(57, 57, 209, 0.395));
+}
+
+.purple {
+    box-shadow: 0 4px rgb(133, 15, 133);
+    filter: drop-shadow(0 0 0.5em rgb(133, 15, 133, 0.395));
+}
+
+.pink {
+    box-shadow: 0 4px rgb(216, 67, 146);
+    filter: drop-shadow(0 0 0.5em rgb(216, 67, 146, 0.395));
+}
+
+.red {
+    box-shadow: 0 4px rgb(209, 36, 36);
+    filter: drop-shadow(0 0 0.5em rgb(209, 36, 36, 0.395));
+}
+
+.gold {
+    box-shadow: 0 4px rgb(254, 219, 18);
+    filter: drop-shadow(0 0 0.5em rgba(254, 219, 18, 0.395));
+}
+
+#pw-container {
+    background-color: rgb(36, 36, 36);
+    border: 1px rgba(245, 245, 245, 0.479) solid;
+    border-radius: 10px;
+    color: whitesmoke;
+}
+
+.input-password {
+    border: 1px rgba(245, 245, 245, 0.448) solid;
+    border-radius: 2px 0 0 2px;
+}
+
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+#img-container,
+#pw-container {
+    transform: translateY(-50px);
+}
+
+#loading {
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

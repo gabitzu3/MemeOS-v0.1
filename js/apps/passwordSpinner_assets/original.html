@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Password Generator</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" href="original.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=content_copyrefresh" />
+    </head>
+    <body class="w-screen h-screen flex items-center justify-center flex-col">
+        <div class="lg:w-1/4 sm:w-4/5" id="img-container">
+            <img class="w-full h-full" src="media/logo.png" />
+        </div>
+        <div id="pw-container" class="flex flex-col sm:w-4/5 lg:w-1/5 p-3">
+            <div class="input-title flex w-full mt-1 mb-2">Generated Password</div>
+            <div class="flex w-full items-center mt-1 mb-3">
+                <div class="input-password w-4/5 py-1 px-2 flex flex items-center">
+                    <input class="w-full" type="text" id="pw" readonly />
+                </div>
+                <div class="w-1/5 py-1 h-full flex items-center justify-center" id="copyToClipboard">
+                    <span class="material-symbols-outlined"> content_copy </span>
+                </div>
+            </div>
+            <div class="flex items-center justify-center mt-2 p-1 hidden" id="resetButton">Reset Password</div>
+            <div class="flex items-center justify-center mt-2 mb-3 p-1" id="gambleButton">Open Character</div>
+        </div>
+        <div id="info" class="flex flex-col justify-center items-center absolute">
+            <div class="text-center">This page is for fun only and does not endorse any gambling activities (unless you're already addicted to it, then I can't do anything).</div>
+            <div class="text-center">!!!ORIGINAL IDEA AND SOURCE FROM https://github.com/clawdius/clawdius.github.io/tree/master/password-generator thank you!</div>
+        </div>
+        <div id="gamble-overlay" class="absolute w-full h-full flex flex-col items-center justify-center hidden">
+            <div class="w-full h-3/4 flex overflow-x-clip" id="container-wrapper">
+                <div class="flex items-center justify-center relative" id="cursor-container">
+                    <div id="cursor"></div>
+                </div>
+                <div class="flex items-center justify-center relative" id="case-container"></div>
+            </div>
+        </div>
+        <script src="original.js"></script>
+    </body>
+</html>

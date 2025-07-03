@@ -1,5 +1,3 @@
-//Coming soon!
-
 function createPasswordSpinnerWindow() {
     const win = makeWindow('Password Spinner');
 
