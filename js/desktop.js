@@ -109,7 +109,7 @@ desktop.addEventListener('mousemove', e => {
 desktop.addEventListener('mouseup', () => dragData = null);
 
 window.openApp = openApp;
-
+window.focusWindow = focusWindow;
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.desktop-icon[data-app]').forEach(icon => {
         icon.onclick = () => openApp(icon.dataset.app);
