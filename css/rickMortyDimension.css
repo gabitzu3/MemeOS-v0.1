@@ -1,0 +1,165 @@
+/* Rick & Morty Dimension App Styling */
+
+.rick-morty-dimension-app .window-content {
+    background-color: #0c0c0c;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+.phase-1-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#dont-press-me-btn {
+    background-color: #ff0000;
+    color: white;
+    border: 4px solid #fff;
+    border-radius: 15px;
+    padding: 20px 40px;
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
+    text-shadow: 2px 2px 5px #000;
+    box-shadow: 0 0 20px #ff0000;
+    transition: all 0.2s ease;
+}
+
+#dont-press-me-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px #ff0000;
+}
+
+.rick-quote {
+    margin-top: 15px;
+    font-size: 1.2em;
+    color: #a0a0a0;
+}
+
+.cronenberg-morty {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 150px;
+    filter: drop-shadow(0 0 10px #ff5722);
+}
+
+.morty-quote {
+    position: absolute;
+    top: 180px;
+    left: 40px;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 1.1em;
+}
+
+.pickle-rick-static {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    filter: drop-shadow(0 0 15px #00ff00);
+}
+
+.dimension-portal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    pointer-events: none;
+}
+
+.pickle-rick-animated {
+    position: absolute;
+    width: 100px;
+    animation: bounce 8s infinite alternate;
+    filter: drop-shadow(0 0 15px #00ff00);
+}
+
+.glitch-active {
+    animation: glitch 1s linear infinite;
+}
+
+@keyframes bounce {
+    0% { top: 10%; left: 10%; transform: rotate(0deg); }
+    25% { top: 80%; left: 80%; transform: rotate(180deg); }
+    50% { top: 50%; left: 20%; transform: rotate(360deg); }
+    75% { top: 20%; left: 90%; transform: rotate(540deg); }
+    100% { top: 10%; left: 10%; transform: rotate(720deg); }
+}
+
+@keyframes glitch {
+  2%,64% { transform: translate(2px,0) skew(0deg); }
+  4%,60% { transform: translate(-2px,0) skew(0deg); }
+  62% { transform: translate(0,0) skew(5deg); }
+}
+
+.fade-to-black {
+    position: fixed; 
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: black;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    z-index: 9998; 
+}
+
+.scoreboard {
+    position: fixed; 
+    top: 20px;
+    left: 20px;
+    font-size: 2em;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    z-index: 9999; 
+}
+
+.game-close-btn {
+    position: fixed; 
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 9999; 
+}
+
+.falling-pickle {
+    position: fixed; 
+    top: -80px; 
+    width: 50px;
+    height: auto;
+    animation-name: fall;
+    animation-timing-function: linear;
+    z-index: 9999; 
+    cursor: pointer;
+    user-select: none; 
+    -webkit-user-drag: none; 
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+@keyframes fall {
+    to {
+        top: 110vh; 
+    }
+}
