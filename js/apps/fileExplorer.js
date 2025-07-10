@@ -68,7 +68,7 @@ function createOhioFileExplorerWindow() {
     const FILE_CONTENTS = {
         'GTA6_ReleaseDate.txt': { type: 'text', content: '🤡 2077, maybe.' },
         'leak.mp4': { type: 'video', src: 'js/apps/file_explorer_files/C/TOP_SECRET_DO_NOT_OPEN/leak.mp4' },
-        'flipper-zero-plans.nsa': { type: 'text', content: '01001001 01101110 01110100 01100101 01101100 00100000 01101001 00111001 00111001 00111001 00110000 00110000 01001011 00100000 01100001 01110100' },
+        'flipper-zero-plans.nsa': { type: 'text', content: '01011001 01101111 01110101 00100000 01100111 01110101 01100101 01110011 01110011 01100101 01100100 00100000 01101001 01110100 00100001 00100000 01010100 01101000 01100101 00100000 01100110 01101100 01101001 01110000 01110000 01100101 01110010 00100000 01101001 01110011 00100000 01110111 01101000 01100001 01110100 00100000 01001001 00100000 01100001 01101101 00100000 01110111 01101111 01110010 01101011 01101001 01101110 01100111 00100000 01100110 01101111 01110010 00101110 00101110 00101110' },
         'Homework.docx': { type: 'text', content: 'ChatGPT already did this for me 😎' },
         'ZoomClass.mp3': { type: 'audio', src: 'js/apps/file_explorer_files/C/School/ZoomClass.mp3' },
         'EverythingIsFine.jpg': { type: 'image', src: 'js/apps/file_explorer_files/C/Ohio/EverythingIsFine.jpg' },
@@ -282,6 +282,8 @@ function createOhioFileExplorerWindow() {
             msg.textContent = response;
             alert.appendChild(msg);
             document.getElementById('desktop').appendChild(alert);
+            if (typeof focusWindow === 'function') focusWindow(alert);
+            if (typeof alert.focus === 'function') alert.focus();
             searchBar.value = '';
         }
     });

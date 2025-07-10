@@ -1,0 +1,130 @@
+/* Base container for the Shiba Inu and its bubble */
+#shiba-player-container {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    z-index: 1000;
+    transform: translateY(100%);
+    animation: shiba-peek 1s ease-in-out 2s forwards;
+}
+#shiba-player {
+    position: relative;
+    cursor: pointer;
+}
+#shiba-inu-img {
+    display: block;
+    width: 80px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    transition: transform 0.3s ease;
+}
+#shiba-player:hover #shiba-inu-img {
+    transform: scale(1.1);
+}
+.shiba-bubble {
+    position: absolute;
+    bottom: 90px; 
+    right: 0;
+    width: 220px;
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 15px;
+    padding: 15px;
+    font-family: 'PixelFont', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    pointer-events: none;
+}
+.shiba-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    right: 30px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #000;
+}
+.shiba-emoji {
+    font-size: 1.3em;
+    display: inline-block;
+    transform: translateY(2px);
+}
+.shiba-bubble.initial-show {
+    animation: bubble-initial-appear 0.5s ease-in-out 3s forwards; 
+}
+#shiba-player:hover .shiba-bubble:not(.initial-show) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto; 
+}
+.shiba-bubble.player-active {
+    width: 250px;
+}
+.shiba-player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#shiba-mute-btn {
+    font-family: 'PixelFont', sans-serif;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+}
+#shiba-volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    outline: none;
+    border: 2px solid #000;
+    border-radius: 5px;
+}
+#shiba-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff99ff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+@keyframes bubble-initial-appear {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+@keyframes shiba-peek {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.shiba-bubble.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}

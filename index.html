@@ -6,82 +6,86 @@
   <title>MemeOS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/custom.css">
-  <link rel="stylesheet" href="css/barnacle-browser.css">
+  <link rel="stylesheet" href="css/shibaMusicPlayer.css">
+  <link rel="stylesheet" href="css/rickMortyDimension.css">
   <link rel="stylesheet" href="css/nyanFlyer.css">
+  <link rel="stylesheet" href="css/barnacle-browser.css">
   <link href="css/bsod.css" rel="stylesheet" />
   <link href="css/contextMenu.css" rel="stylesheet" />
-  <link href="css/rickMortyDimension.css" rel="stylesheet" />
 </head>
-<body class="bg-cover bg-center" style="background-image: url('https://picsum.photos/1920/1080?blur=3')">
+<body class="bg-cover bg-center" style="background-image: url('js/memeos-desktopbg.jpg');">
   <div id="desktop" class="w-screen h-screen overflow-hidden relative select-none">
     <div id="desktop-icons">
-                <div class="desktop-icon" id="barnacle-browser-icon" data-app="barnacle-browser">
-                    <img src="js/apps/barnacle_browser_assets/icon.png" alt="Barnacle Browser">
-                    <span>Barnacle Browser</span>
-                </div>
+      <div class="desktop-icon" data-app="readme" title="Read me please!">
+        <img src="https://img.icons8.com/color/48/txt.png" alt="Read me please!">
+        <span>Read me please!</span>
+      </div>
       <div class="desktop-icon" id="icon-terminal" data-app="terminal">
-        <img src="https://img.icons8.com/fluency/48/console.png" alt="Terminal"/>
+        <img src="js/terminal-icon.png" alt="Terminal">
         <span>Terminal</span>
       </div>
-      <div class="desktop-icon" id="icon-rickroll" data-app="rickroll">
-        <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"/>
+      <div class="desktop-icon" id="icon-youtube" data-app="youtube">
+        <img src="js/apps/yt-logo.png" alt="YouTube">
         <span>YouTube</span>
       </div>
+      <div class="desktop-icon" id="barnacle-browser-icon" data-app="barnacle-browser">
+        <img src="js/apps/barnacle_browser_assets/icon.png" alt="Barnacle Browser">
+        <span>Barnacle Browser</span>
+      </div>
       <div class="desktop-icon" id="icon-taskmgr" data-app="taskManager">
-        <img src="https://img.icons8.com/color/48/system-task.png" alt="Task Manager"/>
+        <img src="js/apps/taskmanager-icon.png" alt="Task Manager"/>
         <span>Task Manager</span>
       </div>
       <div class="desktop-icon" id="icon-antivirus" data-app="antivirus">
         <img src="js/apps/antivirus_icon.png" alt="Antivirus"/>
         <span>Antivirus</span>
       </div>
-      <div class="desktop-icon" id="icon-explorer" data-app="fileExplorer">
-        <img src="https://img.icons8.com/color/48/folder-invoices.png" alt="File Explorer"/>
-        <span>File Explorer</span>
-      </div>
-      <div class="desktop-icon" id="icon-gta6" data-app="gta6">
-        <img src="js/apps/gta6_icon.png" alt="GTA VI">
-        <span>GTA VI</span>
-      </div>
-      <div class="desktop-icon" id="icon-recycle-bin" data-app="recycleBin">
-        <img src="https://img.icons8.com/color/48/recycle-bin.png" alt="Recycle Bin">
-        <span>Recycle Bin</span>
-      </div>
-      <div class="desktop-icon" id="icon-rizzai" data-app="rizzAI">
-        <img src="js/apps/rizzAI_icon.png" alt="RizzAI">
-        <span>RizzAI</span>
-      </div>
-      <div class="desktop-icon" id="icon-basedMeter" data-app="basedMeter">
-        <img src="js/apps/based_meter.png" alt="BasedMeter">
-        <span>BasedMeter</span>
-      </div>
-      <div class="desktop-icon" id="icon-password-spinner" data-app="passwordSpinner">
-        <img src="js/apps/passwordSpinner_icon.png" alt="Password Spinner">
-        <span>Password Spinner</span>
-      </div>
-      <div class="desktop-icon" id="icon-among-us-sus" data-app="among-us-sus">
-        <img src="js/apps/amongUsSus_assets/media/icon.png" alt="You Are Sus">
-        <span>You Are Sus</span>
-      </div>
-      <div class="desktop-icon" id="icon-rick-morty" data-app="rick-morty-dimension">
-        <img src="js/apps/rickMortyDimension_assets/portal.gif" alt="Rick & Morty Dimension">
-        <span>Rick & Morty</span>
-      </div>
-      <div class="desktop-icon" data-app="nyan-flyer">
+                <div class="desktop-icon" id="icon-file-explorer" data-app="fileExplorer">
+                    <img src="js/apps/file-explorer-icon.png" alt="File Explorer">
+                    <span>File Explorer</span>
+                </div>
+                <div class="desktop-icon" id="icon-recycle-bin" data-app="recycleBin">
+                    <img src="js/apps/recbin-icon.png" alt="Recycle Bin">
+                    <span>Recycle Bin</span>
+                </div>
+                <div class="desktop-icon" id="icon-gta6" data-app="gta6">
+                    <img src="js/apps/gta6_icon.png" alt="GTA VI">
+                    <span>GTA VI</span>
+                </div>
+                <div class="desktop-icon" id="icon-rizzai" data-app="rizzAI">
+                    <img src="js/apps/rizzAI_icon.png" alt="RizzAI">
+                    <span>RizzAI</span>
+                </div>
+                <div class="desktop-icon" id="icon-basedMeter" data-app="basedMeter">
+                    <img src="js/apps/based_meter.png" alt="BasedMeter">
+                    <span>BasedMeter</span>
+                </div>
+                <div class="desktop-icon" id="icon-password-spinner" data-app="passwordSpinner">
+                    <img src="js/apps/passwordSpinner_icon.png" alt="Password Spinner">
+                    <span>Password Spinner</span>
+                </div>
+                <div class="desktop-icon" id="icon-among-us-sus" data-app="among-us-sus">
+                    <img src="js/apps/amongUsSus_assets/media/icon.png" alt="You Are Sus">
+                    <span>You Are Sus</span>
+                </div>
+                <div class="desktop-icon" data-app="rick-morty-dimension">
+                <img src="js/apps/rickandmorty-icon.png" alt="Rick & Morty Dimension">
+                <span>Rick & Morty</span>
+            </div>
+            <div class="desktop-icon" data-app="nyan-flyer">
                 <img src="js/apps/nyan-icon.png" alt="Nyan Flyer">
                 <span>Nyan Flyer</span>
-      </div>
+          </div>
     </div>
   </div>
-
   <div id="taskbar" class="fixed bottom-0 left-0 right-0 h-10 bg-black bg-opacity-60 flex items-center px-2 space-x-2 text-white text-sm"></div>
-
   <script src="js/utils.js"></script>
   <script src="js/apps/rickroll.js"></script>
   <script src="js/apps/hackerTyper.js"></script>
   <script src="js/apps/taskManager.js"></script>
   <script src="js/apps/antivirus.js"></script>
   <script src="js/apps/fileExplorer.js"></script>
+  <script src="js/apps/readme.js"></script>
   <script src="js/apps/gta6.js"></script>
   <script src="js/apps/barnacle-browser.js"></script>
   <script src="js/apps/recycleBin.js"></script>
@@ -96,5 +100,6 @@
   <script src="js/bsod.js"></script>
   <script src="js/contextMenu.js"></script>
   <script src="js/desktop.js"></script>
+  <script src="js/shibaMusicPlayer.js"></script>
 </body>
 </html>

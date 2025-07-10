@@ -1,7 +1,6 @@
 function createRickrollWindow() {
   const win = makeWindow('Rickroll');
   win.dataset.app = 'rickroll';
-
   const content = document.createElement('div');
   content.className = 'w-full h-full';
   content.innerHTML = `
@@ -10,6 +9,6 @@ function createRickrollWindow() {
   win.appendChild(content);
   return win;
 }
-
 window.apps = window.apps || {};
 window.apps.rickroll = { createWindow: createRickrollWindow };
+window.apps.youtube = { createWindow: createRickrollWindow };
