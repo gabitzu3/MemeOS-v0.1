@@ -135,6 +135,7 @@ function createGTA6Window() {
         const closePopup = (andCloseWindow = false) => {
             popupContainer.remove();
             if (andCloseWindow) {
+                win.dispatchEvent(new Event('close'));
                 win.remove();
             } else {
                 video.play();

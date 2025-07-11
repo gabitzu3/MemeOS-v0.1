@@ -1,6 +1,14 @@
 const nyanFlyerApp = {
     createWindow: function() {
+        const existingWindow = document.querySelector('.window[data-app="nyan-flyer"]');
+        if (existingWindow) {
+            if (typeof focusWindow === 'function') {
+                focusWindow(existingWindow);
+            }
+            return;
+        }
         const win = makeWindow('Nyan Flyer');
+        win.dataset.app = 'nyan-flyer';
         win.classList.add('nyan-flyer-window');
         win.classList.remove('w-96', 'h-64');
         win.classList.add('w-[80vw]', 'h-[80vh]');

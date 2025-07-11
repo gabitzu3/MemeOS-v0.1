@@ -159,6 +159,7 @@ function createBasedMeterWindow() {
         
         if (result.title === 'NPC' || result.title === 'CRINGE') {
             container.querySelector('#embraceBtn').onclick = () => {
+                win.dispatchEvent(new Event('close'));
                 win.remove(); 
             };
         }

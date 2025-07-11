@@ -9,7 +9,15 @@ const rickMortyDimensionApp = {
     state: {
     },
     createWindow: () => {
+        const existingWindow = document.querySelector('.window[data-app="rick-morty-dimension"]');
+        if (existingWindow) {
+            if (typeof focusWindow === 'function') {
+                focusWindow(existingWindow);
+            }
+            return;
+        }
         const win = makeWindow(rickMortyDimensionApp.name);
+        win.dataset.app = 'rick-morty-dimension';
         win.style.width = rickMortyDimensionApp.config.width;
         win.style.height = rickMortyDimensionApp.config.height;
         win.classList.add('rick-morty-dimension-app');

@@ -4,26 +4,20 @@ function createTerminalWindow() {
   win.classList.remove('w-96', 'h-64');
   win.classList.add('w-[700px]', 'h-[500px]');
   win.dataset.app = 'terminal';
-
   const content = document.createElement('div');
   content.className = 'flex flex-col h-full';
-
   const output = document.createElement('div');
   output.className = 'flex-1 p-2 overflow-auto text-green-400 font-mono text-sm';
-
   const inputLine = document.createElement('div');
   inputLine.className = 'flex p-1';
   inputLine.innerHTML = '<span class="text-green-400">$</span>';
-
   const input = document.createElement('input');
   input.className = 'flex-1 bg-black text-green-400 outline-none ml-2';
   input.placeholder = '';
   inputLine.appendChild(input);
-
   content.appendChild(output);
   content.appendChild(inputLine);
   win.appendChild(content);
-
   const write = (text) => {
     if (text.includes('\n')) {
         const pre = document.createElement('pre');
@@ -35,9 +29,7 @@ function createTerminalWindow() {
     }
     output.scrollTop = output.scrollHeight;
   };
-
   write('MemeOS v0.1. Type `help` for a list of commands.');
-
   input.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
       const cmd = input.value.trim();
@@ -47,13 +39,10 @@ function createTerminalWindow() {
       output.scrollTop = output.scrollHeight;
     }
   });
-
   win.addEventListener('focus', () => input.focus(), true);
   setTimeout(() => input.focus(), 0);
-
   return win;
 }
-
 function handleCmd(cmd, write) {
   const [command, ...args] = cmd.toLowerCase().split(' ');
   switch (command) {
@@ -74,7 +63,7 @@ function handleCmd(cmd, write) {
             'scan': 'Scans for... threats.',
             'sudo [cmd]': 'Execute a command with superuser privileges.',
             'shutdown': 'Turns off the computer (not really).',
-            'reboot': 'Restarts the computer (just kidding).',
+            'reboot': 'Restarts the computer.',
         };
         let helpText = 'Available commands:\n';
         for (const [cmd, desc] of Object.entries(commands)) {

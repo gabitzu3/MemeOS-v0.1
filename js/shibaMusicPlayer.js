@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     shibaPlayer.appendChild(bubble);
     playerContainer.appendChild(shibaPlayer);
     body.appendChild(playerContainer);
-    const music = new Audio('assets/audio/lofi1hour-memeos.mp3');
+    const music = new Audio('assets/audio/lofi15mins-memeos.mp3');
     music.loop = true;
     let hasBeenClicked = false;
     let lastVolume = 0.5;
