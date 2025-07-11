@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     playerContainer.appendChild(shibaPlayer);
     body.appendChild(playerContainer);
     const playlist = [
-        'assets/audio/lofi1.mp3',
-        'assets/audio/lofi2.mp3',
-        'assets/audio/lofi3.mp3',
-        'assets/audio/lofi4.mp3',
-        'assets/audio/lofi5.mp3',
-        'assets/audio/lofi6.mp3',
+        'assets/audio/beatslofi1.mp3',
+        'assets/audio/beatslofi2.mp3',
+        'assets/audio/beatslofi3.mp3',
+        'assets/audio/beatslofi4.mp3',
+        'assets/audio/beatslofi5.mp3',
+        'assets/audio/beatslofi6.mp3',
     ];
     let currentTrackIndex = 0;
     const music = new Audio();
