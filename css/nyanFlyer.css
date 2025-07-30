@@ -52,6 +52,13 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 100;
+
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .nyan-obstacle {
     position: absolute;
